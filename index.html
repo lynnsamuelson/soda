@@ -1,0 +1,15 @@
+<link rel = "stylesheet"
+type = "text/css"
+href = "/moneyStyle" />
+
+
+
+<div id="app">
+    <div><h1>Soda 50 &#162;</h1></div>
+    <money :balance="balance" @inputmoney="updateBalance"></money>
+    <soda :balance="balance" @inputmoney="updateBalance"></soda>
+</div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<script src="/vue"></script>
+<script src="/money"></script>

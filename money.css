@@ -1,0 +1,13 @@
+
+
+#app {
+    border: 2px solid;
+    margin: 20px 50px;
+    position: relative;
+    padding: 20px 0; 
+}
+
+#app div {
+    text-align: center
+}
+
