@@ -7,7 +7,25 @@ href = "./money.css" />
 <div id="app">
     <div class="header"><h1>Soda 50 &#162;</h1></div>
     <money :balance="balance" @inputmoney="updateBalance"></money>
-    <soda :balance="balance" @inputmoney="updateBalance"></soda>
+    <div>
+        <h1>Purchase Soda</h1>
+        <p v-if="balance < 50">Please add money to purchase a soda</p>
+        
+        <ul class="listSodas">
+            <li>
+                <soda flavor="Coke" :balance="balance" @inputmoney="updateBalance" @inputpurchase="updateHistory"></soda>
+            </li>
+            <li>
+                <soda flavor="Sprite" :balance="balance" @inputmoney="updateBalance" @inputpurchase="updateHistory"></soda>
+            </li>
+        </ul>  
+        
+    <h1 v-if="purchased.length > 0">Purchase History</h1>
+    <ul v-for="purchase in purchased">
+        <li>
+            <p>Purchased {{purchase.flavor}} on: {{purchase.time}}</p>
+        </li>
+    </ul>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>

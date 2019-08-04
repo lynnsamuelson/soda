@@ -1,27 +1,15 @@
 Vue.component('soda', {
-    props: ['balance'],
+    props: ['balance', 'flavor'],
     template: 
     `<div class="soda">
-    <h1>Purchase Soda</h1>
-        <h3>Sodas left: {{sodas}}</h3>
-        <p v-if="sodas < 1">We are currently out of soda. Please check back later."</p>
-        <p v-else-if="curbalance < 50">Please add money to purchase a soda</p>
-        <p v-else></p>
         <button
             :disabled="curbalance <50 || sodas < 1" 
             v-on:click="purchaseSoda"
-        >Get Soda</button>
-        <h1 v-if="purchased.length > 0">Purchase History</h1>
-        <ul v-for="purchase in purchased">
-            <li>
-                <p>Purchased on: {{purchase.time}}</p>
-                <p>Soda machine balance: {{purchase.balance}}&#162</p>
-            </li>
-        </ul>
+        >{{flavor}} ({{sodas}} left)</button>
     </div>`,
     data()  {
         return {
-            sodas: 10,
+            sodas: 5,
             purchased: []
         }
     },
@@ -32,10 +20,12 @@ Vue.component('soda', {
             let purchase = {
                 time: (new Date()).toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "),
                 number: 1,
-                balance: newBalance
+                flavor: this.flavor
             }
-            this.purchased.push(purchase)
+            this.purchased.push(purchase);
             this.$emit("inputmoney", newBalance);
+            this.$emit("inputpurchase", purchase);
+            // this.$emit("inputmoney", purchase);
         }
     },
     computed: {
