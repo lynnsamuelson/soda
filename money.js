@@ -3,7 +3,7 @@ Vue.component('money', {
     props: ['balance'],
     template: `
         <div>
-            <h1 id="money">The balance is {{balance}} &#162;</h1>
+            <h1 id="money">Balance: {{balance}} &#162;</h1>
             <button v-on:click="addQuarter" >Add Quarter</button>
             <button v-on:click="changeReturn" :disabled="balance < 1">Return Change</button>
         </div>`,
