@@ -16,7 +16,6 @@ Vue.component('money', {
        
     methods: {
         addQuarter() {
-            // this.balance += 25;
             let newBalance = this.balance + 25;
             this.$emit("inputmoney", newBalance);
         },
