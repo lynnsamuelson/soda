@@ -3,14 +3,14 @@ new Vue({
     
     data: {
         balance: 0,
-        purchased: []
+        historyList: []
     },
     methods: {
         updateBalance(newBalance){
             this.balance = newBalance;
         },
         updateHistory(purchase) {
-            this.purchased.push(purchase);
+            this.historyList.push(purchase);
         }
        
     }

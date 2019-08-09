@@ -22,6 +22,10 @@
     display: inline;
 }
 
+.history {
+    background-color: #81A8B8;
+}
+
 button {
     border-radius: 8px;
     display: inline-block;
@@ -48,4 +52,10 @@ button:disabled {
     border: 1px solid #81A8B840;
     background-color: #81A8B850;
     margin: 10px 0;
+}
+
+ul { 
+    list-style: none;
+    text-align: left;
+    padding: 0 100px;
 }

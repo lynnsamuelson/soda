@@ -6,7 +6,7 @@ href = "./money.css" />
 
 <div id="app">
     <div class="header"><h1>Soda 50 &#162;</h1></div>
-    <money :balance="balance" @inputmoney="updateBalance"></money>
+    <money :balance="balance" @inputmoney="updateBalance"  @inputpurchase="updateHistory"></money>
     <div>
         <h1>Purchase Soda</h1>
         <p v-if="balance < 50">Please add money to purchase a soda</p>
@@ -20,15 +20,16 @@ href = "./money.css" />
             </li>
         </ul>  
         
-    <h1 v-if="purchased.length > 0">Purchase History</h1>
-    <ul v-for="purchase in purchased">
+    <h1 v-if="historyList.length > 0" class="history">History</h1>
+    <ul v-for="item in historyList">
         <li>
-            <p>Purchased {{purchase.flavor}} on: {{purchase.time}}</p>
+            <p>{{item.item}} on: {{item.time}}</p>
         </li>
     </ul>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="./node_modules/moment/moment.js"></script>
 <!-- <script src="./node_modules\vue\dist\vue.min.js"></script> -->
 <script src="./money.js"></script>
 <script src="./soda.js"></script>
